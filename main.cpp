@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int compras, atraso, score;
+    int compras, atraso, score1, score2, score3;
     double TicketMedio;
     string maioraDCB;
 
@@ -29,24 +29,43 @@ int main()
 
 
     if (compras == 0 || compras < 0){
-        score = 0;
+        score1 = 0;
     }
     else if (compras <= 2 && (TicketMedio * compras) <= 3000){
-        score = 20;
+        score1 = 20;
     }
     else if (compras > 2 && (TicketMedio * compras) <= 3000){
-        score = 40;
+        score1 = 40;
     }
     else{
-        score = 60;
+        score1 = 60;
     }
 
-
-    cout << "Score de volume de compras = " << score;
+    cout << "Score de volume de compras = " << score1;
     cout << "" << endl;
 
-    cout << "Score de inadimplencia = " << endl;
-    cout << "Score de forma de pagamento = " << endl << endl;
+    if (compras == 0 || atraso > 1){
+        score2 = 0;
+    }
+    else if (compras > 0 && atraso == 1){
+        score2 = 15;
+    }
+    else {
+        score2 = 30;
+    }
+
+    cout << "Score de inadimplencia = " << score2 << endl;
+
+    if (compras == 0 && cin >> maioraDCB == "D"){
+        score3 = 5;
+    }
+    else {
+        score3 = 10;
+    }
+
+    cout << "Score de forma de pagamento = " << score3;
+    cout << "" << endl;
+
     cout << "Classificacao final = " << endl;
 
     return 0;
